@@ -6,8 +6,30 @@
 //  Copyright © 2020 João Felipe Carvalho. All rights reserved.
 //
 
-import UIKit
+class CharactersListPresenter: CharactersListPresenterProtocol {
+    
+    var view: CharactersListViewControllerProtocol?
+    var interactor: CharactersListInteractorInputProtocol?
+    var wireFrame: CharactersListWireFrameProtocol?
+    
+    func viewDidLoad() {
+    }
+    
+    func getCharList() {
+        view?.showLoading()
+        interactor?.retrieveCharList()
+    }
+}
 
-class CharactersListPresenter: NSObject {
-
+extension CharactersListPresenter: CharactersListInteractorOutputProtocol {
+    
+    func didRetrieveChars(_ chars: [Character]) {
+        view?.hideLoading()
+        wireFrame?.presentCharactersListScreen(from: view!, forChars: chars)
+    }
+    
+    func didFailedRequest(with error: String) {
+        view?.hideLoading()
+        view?.showError(with: error)
+    }
 }
