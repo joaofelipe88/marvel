@@ -12,9 +12,7 @@ struct ApiDefinitions {
     
     // MARK: - The BASE URL
     
-    enum Base: String {
-        case home = "https://gateway.marvel.com:443/v1/public/"
-    }
+    static let baseUrl = "https://gateway.marvel.com:443/v1/public/"
     
     // MARK: - Possible Endpoints
     

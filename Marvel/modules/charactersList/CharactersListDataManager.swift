@@ -7,58 +7,79 @@
 //
 
 import Foundation
+import RxSwift
 
-class CharactersListDataManager {
+class CharactersListDataManager: ApiServices, CharactersListRemoteDataManagerInputProtocol {
     
-    func getHeroes(start: Int, count: Int, completion: @escaping (Result<[Character]>) -> Void) {
-           
-            searchHeroes(searchString: nil, start: start, count: count) {
-                
-                response in
-                
-                completion(response)
-            }
+    var remoteRequestHandler: CharactersListRemoteDataManagerOutputProtocol?
+    let disposeBag = DisposeBag()
+    
+    func retrieveCharList() {
+        
+        fetch(lastIndex: 0)
+        .subscribe(onNext: { (chars) in
+            self.remoteRequestHandler?.onCharsRetrieved(chars)
+        }).disposed(by: disposeBag)
+        
+//        searchCharacters(searchString: nil, start: 0, count: 10) { response in
+//            
+//            guard response.isSuccess, let chars = response.value else  {
+//                self.remoteRequestHandler?.didFailedRequest(with: "teste")
+//                return
+//            }
+//            
+//            self.remoteRequestHandler?.onCharsRetrieved(chars)
+//        }
+    }
+    
+    func fetch(lastIndex: Int) -> Observable<[Character]> {
+        
+        let endpoint = "\(ApiDefinitions.Endpoint.characters)?\(defaultParams())&limit=\(LIMIT)&offset=\(lastIndex)"
+        
+        return ApiRequest<CharacterResponse>()
+            .requestObject(urlString: "\(ApiDefinitions.baseUrl)\(endpoint)")
+            .map { CharacterMapper().mapCharacters(response: $0) }
+    }
+        
+    func searchCharacters(searchString: String?, start: Int, count: Int, completion: @escaping (Result<[Character]>) -> Void) {
+        
+        let base = ApiDefinitions.baseUrl
+        let endpoint = ApiDefinitions.Endpoint.self
+        let urlRequest = base + endpoint.characters.rawValue
+        
+        var parameters: [String: Any] = [:]
+        parameters["limit"] = count
+        parameters["offset"] = start
+        
+        if let searchString = searchString {
+            parameters["nameStartsWith"] = searchString
         }
         
-        func searchHeroes(searchString: String?, start: Int, count: Int, completion: @escaping (Result<[Character]>) -> Void) {
-            
-            let base = ApiDefinitions.Base.self
-            let endpoint = ApiDefinitions.Endpoint.self
-            let urlRequest = base.home.rawValue + endpoint.characters.rawValue
-            
-            var parameters: [String: Any] = [:]
-            parameters["limit"] = count
-            parameters["offset"] = start
-            
-            if let searchString = searchString {
-                parameters["nameStartsWith"] = searchString
-            }
-            
-    //        Gateway.shared.request(endpointString, method: .get, parameters: parameters) {
-    //
-    //            response in
-    //
-    //            guard response.isSuccess else {
-    //                completion(Result.failure(response.error!))
-    //                return
-    //            }
-    //
-    //            guard let value = response.value as? [String: Any],
-    //                let data = value["data"] as? [String: Any],
-    //                let heroesPayload = data["results"] as? [[String: Any]] else {
-    //                completion(Result.failure(GatewayError.MalformedResponse))
-    //                return
-    //            }
-    //
-    //            var heroes: [Hero] = []
-    //            for eachHeroPayload in heroesPayload {
-    //                if let hero = try? HeroMapper.mapFromSource(payload: eachHeroPayload) {
-    //                    heroes.append(hero)
-    //                }
-    //            }
-    //
-    //            completion(Result.success(heroes))
-    //        }
-        }
+//        Gateway.shared.request(endpointString, method: .get, parameters: parameters) {
+//
+//            response in
+//
+//            guard response.isSuccess else {
+//                completion(Result.failure(response.error!))
+//                return
+//            }
+//
+//            guard let value = response.value as? [String: Any],
+//                let data = value["data"] as? [String: Any],
+//                let heroesPayload = data["results"] as? [[String: Any]] else {
+//                completion(Result.failure(GatewayError.MalformedResponse))
+//                return
+//            }
+//
+//            var heroes: [Hero] = []
+//            for eachHeroPayload in heroesPayload {
+//                if let hero = try? HeroMapper.mapFromSource(payload: eachHeroPayload) {
+//                    heroes.append(hero)
+//                }
+//            }
+//
+//            completion(Result.success(heroes))
+//        }
+    }
 
 }

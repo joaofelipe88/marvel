@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37925BA624088D0600AE76A4 /* MarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37925BA524088D0600AE76A4 /* MarvelTests.swift */; };
 		37B5EC0E2409718000C6F5D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B5EBFF2409718000C6F5D7 /* LaunchScreen.storyboard */; };
 		37B5EC0F2409718000C6F5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B5EC002409718000C6F5D7 /* Assets.xcassets */; };
 		37B5EC102409718000C6F5D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B5EC012409718000C6F5D7 /* Main.storyboard */; };
@@ -24,6 +23,14 @@
 		37DA3909240BD4FE00D697F3 /* CharactersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA3908240BD4FE00D697F3 /* CharactersListPresenter.swift */; };
 		37DA390B240BD51300D697F3 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA390A240BD51300D697F3 /* CharactersListViewController.swift */; };
 		37DA3910240BDEEF00D697F3 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA390F240BDEEF00D697F3 /* Error+Extension.swift */; };
+		37DA3912240BEC2800D697F3 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA3911240BEC2800D697F3 /* ApiRequest.swift */; };
+		37DA3914240BED7900D697F3 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA3913240BED7900D697F3 /* CharacterResponse.swift */; };
+		37DA391A240BF02100D697F3 /* MD5Helper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA3919240BF02100D697F3 /* MD5Helper+Extension.swift */; };
+		37DA391D240BF23700D697F3 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA391C240BF23700D697F3 /* ApiServices.swift */; };
+		37DA3920240BF2B100D697F3 /* CharacterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA391F240BF2B100D697F3 /* CharacterMapper.swift */; };
+		37DA3922240BF40100D697F3 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA3921240BF40100D697F3 /* CharacterDetail.swift */; };
+		37DA3924240BF45F00D697F3 /* CharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA3923240BF45F00D697F3 /* CharacterItem.swift */; };
+		37DA3926240C03DD00D697F3 /* CharactersRequestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA3925240C03DD00D697F3 /* CharactersRequestSpec.swift */; };
 		CF06B7F4B8D39C983BC959E0 /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7F33338854B2F55C82B01B /* Pods_Marvel.framework */; };
 		EF53D35CF619E080B41F85CF /* Pods_MarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEEE3D6A32253A257E7EABB /* Pods_MarvelTests.framework */; };
 /* End PBXBuildFile section */
@@ -43,7 +50,6 @@
 		21CED46F4D5CC79BA13451F6 /* Pods-MarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelTests/Pods-MarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		37925B8824088D0400AE76A4 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37925BA124088D0600AE76A4 /* MarvelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		37925BA524088D0600AE76A4 /* MarvelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelTests.swift; sourceTree = "<group>"; };
 		37925BA724088D0600AE76A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B5EBFF2409718000C6F5D7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B5EC002409718000C6F5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +68,14 @@
 		37DA3908240BD4FE00D697F3 /* CharactersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenter.swift; sourceTree = "<group>"; };
 		37DA390A240BD51300D697F3 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		37DA390F240BDEEF00D697F3 /* Error+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
+		37DA3911240BEC2800D697F3 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		37DA3913240BED7900D697F3 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
+		37DA3919240BF02100D697F3 /* MD5Helper+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MD5Helper+Extension.swift"; sourceTree = "<group>"; };
+		37DA391C240BF23700D697F3 /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
+		37DA391F240BF2B100D697F3 /* CharacterMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMapper.swift; sourceTree = "<group>"; };
+		37DA3921240BF40100D697F3 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
+		37DA3923240BF45F00D697F3 /* CharacterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterItem.swift; sourceTree = "<group>"; };
+		37DA3925240C03DD00D697F3 /* CharactersRequestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRequestSpec.swift; sourceTree = "<group>"; };
 		94E6AF4848B770BA071F2995 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 		AD7F33338854B2F55C82B01B /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A9F6B99C6A8458B0983238 /* Pods-MarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelTests/Pods-MarvelTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,8 +150,8 @@
 		37925BA424088D0600AE76A4 /* MarvelTests */ = {
 			isa = PBXGroup;
 			children = (
-				37925BA524088D0600AE76A4 /* MarvelTests.swift */,
 				37925BA724088D0600AE76A4 /* Info.plist */,
+				37DA3925240C03DD00D697F3 /* CharactersRequestSpec.swift */,
 			);
 			path = MarvelTests;
 			sourceTree = "<group>";
@@ -156,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				37DA38FE240BCEBF00D697F3 /* Character.swift */,
+				37DA3921240BF40100D697F3 /* CharacterDetail.swift */,
+				37DA3923240BF45F00D697F3 /* CharacterItem.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -163,6 +179,7 @@
 		37B5EC032409718000C6F5D7 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				37DA391E240BF29F00D697F3 /* mapper */,
 				37DA38F1240BC99200D697F3 /* api */,
 				37B5EC152409725A00C6F5D7 /* repository */,
 			);
@@ -228,6 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				37DA38F2240BC9EB00D697F3 /* ApiDefinitions.swift */,
+				37DA3911240BEC2800D697F3 /* ApiRequest.swift */,
+				37DA391C240BF23700D697F3 /* ApiServices.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -244,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				37DA38FC240BCE8C00D697F3 /* Result.swift */,
+				37DA3913240BED7900D697F3 /* CharacterResponse.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -252,8 +272,17 @@
 			isa = PBXGroup;
 			children = (
 				37DA390F240BDEEF00D697F3 /* Error+Extension.swift */,
+				37DA3919240BF02100D697F3 /* MD5Helper+Extension.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		37DA391E240BF29F00D697F3 /* mapper */ = {
+			isa = PBXGroup;
+			children = (
+				37DA391F240BF2B100D697F3 /* CharacterMapper.swift */,
+			);
+			path = mapper;
 			sourceTree = "<group>";
 		};
 		72A47C363C9B869AC29D6720 /* Frameworks */ = {
@@ -451,18 +480,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37DA3920240BF2B100D697F3 /* CharacterMapper.swift in Sources */,
 				37DA390B240BD51300D697F3 /* CharactersListViewController.swift in Sources */,
 				37DA3901240BD43900D697F3 /* CharactersListInteractor.swift in Sources */,
+				37DA3914240BED7900D697F3 /* CharacterResponse.swift in Sources */,
 				37DA38FD240BCE8D00D697F3 /* Result.swift in Sources */,
 				37DA3907240BD4E600D697F3 /* CharactersListProtocols.swift in Sources */,
+				37DA3924240BF45F00D697F3 /* CharacterItem.swift in Sources */,
 				37DA38FF240BCEBF00D697F3 /* Character.swift in Sources */,
+				37DA391D240BF23700D697F3 /* ApiServices.swift in Sources */,
 				37DA3905240BD4A800D697F3 /* CharactersListWireframe.swift in Sources */,
 				37DA3910240BDEEF00D697F3 /* Error+Extension.swift in Sources */,
+				37DA3922240BF40100D697F3 /* CharacterDetail.swift in Sources */,
 				37DA3903240BD47900D697F3 /* CharactersListDataManager.swift in Sources */,
 				37B5EC122409718000C6F5D7 /* AppDelegate.swift in Sources */,
+				37DA391A240BF02100D697F3 /* MD5Helper+Extension.swift in Sources */,
 				37DA3909240BD4FE00D697F3 /* CharactersListPresenter.swift in Sources */,
 				37DA38F3240BC9EB00D697F3 /* ApiDefinitions.swift in Sources */,
 				37B5EC182409725A00C6F5D7 /* Marvel.xcdatamodeld in Sources */,
+				37DA3912240BEC2800D697F3 /* ApiRequest.swift in Sources */,
 				37B5EC132409718000C6F5D7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,7 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37925BA624088D0600AE76A4 /* MarvelTests.swift in Sources */,
+				37DA3926240C03DD00D697F3 /* CharactersRequestSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

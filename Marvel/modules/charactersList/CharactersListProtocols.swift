@@ -39,7 +39,7 @@ protocol CharactersListPresenterProtocol: class {
 protocol CharactersListInteractorOutputProtocol: class {
     // INTERACTOR -> PRESENTER
     func didRetrieveChars(_ chars: [Character])
-    func didFailedRequest(with error: CustomError)
+    func didFailedRequest(with error: String)
 }
 
 protocol CharactersListInteractorInputProtocol: class {
@@ -60,5 +60,5 @@ protocol CharactersListRemoteDataManagerInputProtocol: class {
 protocol CharactersListRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> INTERACTOR
     func onCharsRetrieved(_ chars: [Character])
-    func didFailedRequest(with error: CustomError)
+    func didFailedRequest(with error: String)
 }

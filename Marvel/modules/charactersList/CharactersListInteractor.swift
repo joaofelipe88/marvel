@@ -24,7 +24,7 @@ extension CharactersListInteractor: CharactersListRemoteDataManagerOutputProtoco
         presenter?.didRetrieveChars(chars)
     }
     
-    func didFailedRequest(with error: CustomError) {
+    func didFailedRequest(with error: String) {
 //        presenter?.onError()
     }
 }
