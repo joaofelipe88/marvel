@@ -79,8 +79,8 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kr6-d4-udV">
                                 <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's no Characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVY-wy-FF0">
-                                        <rect key="frame" x="122.5" y="324" width="169.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's no Heroes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVY-wy-FF0">
+                                        <rect key="frame" x="137" y="324" width="140" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -135,7 +135,8 @@
                     <navigationItem key="navigationItem" title="Characters" id="xcq-Ld-0pR"/>
                     <connections>
                         <outlet property="activityIndicator" destination="ChC-oR-JSH" id="xbW-TY-DEL"/>
-                        <outlet property="charactersEmptyView" destination="kr6-d4-udV" id="Daf-BB-Gee"/>
+                        <outlet property="characterErrorLabel" destination="kVY-wy-FF0" id="hcD-h7-Fe3"/>
+                        <outlet property="charactersErrorView" destination="kr6-d4-udV" id="eID-BV-sun"/>
                         <outlet property="collectionView" destination="LdO-2E-Pz7" id="jmk-sO-y64"/>
                         <outlet property="searchBar" destination="wW0-73-IUv" id="kIp-kF-Hdz"/>
                     </connections>

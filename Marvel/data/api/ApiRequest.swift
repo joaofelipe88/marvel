@@ -22,7 +22,18 @@ class ApiRequest<T: Decodable> {
             var urlRequest = URLRequest(url: url)
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-            remoteTask = URLSession.shared.dataTask(with: urlRequest) { data, _ , error in
+            remoteTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                
+                guard error == nil else {
+                    if let msgError = error?.localizedDescription {
+                        observer.onError(CustomError(msg: msgError))
+                    } else {
+                        observer.onError(CustomError(msg: self.errorMessage))
+                    }
+                    observer.onCompleted()
+                    return
+                }
+                
                 guard let dataReceived = data else {
                     observer.onError(CustomError(msg: self.errorMessage))
                     observer.onCompleted()
