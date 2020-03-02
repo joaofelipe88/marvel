@@ -23,6 +23,10 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
         view?.showLoading()
         interactor?.searchCharList(textName: textName)
     }
+    
+    func showCharacterDetail(forChar char: Character) {
+        wireFrame?.presentCharactersListScreen(from: view!, forChar: char)
+    }
 }
 
 extension CharactersListPresenter: CharactersListInteractorOutputProtocol {

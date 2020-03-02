@@ -132,18 +132,37 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jWA-eu-MnR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Characters" id="xcq-Ld-0pR"/>
+                    <navigationItem key="navigationItem" title="Characters" id="xcq-Ld-0pR">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="RKV-L4-Qva"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="ChC-oR-JSH" id="xbW-TY-DEL"/>
                         <outlet property="characterErrorLabel" destination="kVY-wy-FF0" id="hcD-h7-Fe3"/>
                         <outlet property="charactersErrorView" destination="kr6-d4-udV" id="eID-BV-sun"/>
                         <outlet property="collectionView" destination="LdO-2E-Pz7" id="jmk-sO-y64"/>
                         <outlet property="searchBar" destination="wW0-73-IUv" id="kIp-kF-Hdz"/>
+                        <segue destination="eNt-dk-nMQ" kind="show" id="5zH-0I-Ipn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08F-Hs-4uQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1027.536231884058" y="-614.0625"/>
+        </scene>
+        <!--Character Detail View Controller-->
+        <scene sceneID="d69-us-ind">
+            <objects>
+                <viewController storyboardIdentifier="CharacterDetailController" id="eNt-dk-nMQ" customClass="CharacterDetailViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u0w-dl-6uE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="0xg-X3-Nhl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ale-Wl-T3l"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJa-JI-K0v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1954" y="-614"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iKf-re-GiL">
@@ -174,6 +193,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CPl-cc-nQz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.49803921569999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
