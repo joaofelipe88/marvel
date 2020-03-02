@@ -13,8 +13,8 @@ class CharactersListInteractor: CharactersListInteractorInputProtocol {
     var presenter: CharactersListInteractorOutputProtocol?
     var remoteDatamanager: CharactersListRemoteDataManagerInputProtocol?
     
-    func retrieveCharList() {
-        remoteDatamanager?.retrieveCharList()
+    func retrieveCharList(lastIndex: Int) {
+        remoteDatamanager?.retrieveCharList(lastIndex: lastIndex)
     }
 }
 

@@ -12,11 +12,11 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     var interactor: CharactersListInteractorInputProtocol?
     var wireFrame: CharactersListWireFrameProtocol?
     
-    func fetchCharacters(pullRefresh: Bool) {
+    func fetchCharacters(pullRefresh: Bool, lastIndex: Int) {
         if !pullRefresh {
             view?.showLoading()
         }
-        interactor?.retrieveCharList()
+        interactor?.retrieveCharList(lastIndex: lastIndex)
     }
 }
 

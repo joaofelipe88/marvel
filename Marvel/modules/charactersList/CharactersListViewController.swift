@@ -17,6 +17,7 @@ class CharactersListViewController: UIViewController {
     
     private let characterCell = "CharactersListCell"
     private var charactersArray = [Character]()
+    private var lastIndex: Int = 0
     
     var presenter: CharactersListPresenterProtocol!
     
@@ -24,7 +25,7 @@ class CharactersListViewController: UIViewController {
         super.viewDidLoad()
         
         registerCells()
-        self.presenter.fetchCharacters(pullRefresh: false)
+        self.presenter.fetchCharacters(pullRefresh: false, lastIndex: 0)
     }
     
     // MARK: - Setup
@@ -38,7 +39,8 @@ class CharactersListViewController: UIViewController {
     // MARK: - RefreshAction
     
     @objc private func refreshWeatherData(_ sender: Any) {
-        self.presenter.fetchCharacters(pullRefresh: true)
+        self.lastIndex = 0
+        self.presenter.fetchCharacters(pullRefresh: true, lastIndex: self.lastIndex)
     }
 }
 
@@ -64,7 +66,19 @@ extension CharactersListViewController: CharactersListViewControllerProtocol {
     }
     
     func loadCharacters(_ chars: [Character]) {
-        self.charactersArray = chars.sorted { $0.name!.lowercased() < $1.name!.lowercased() }
+        
+        if self.lastIndex > 0 {
+            
+            for item in chars {
+                self.charactersArray.append(item)
+            }
+            self.charactersArray = self.charactersArray.sorted { $0.name!.lowercased() < $1.name!.lowercased() }
+            
+        } else {
+            
+            self.charactersArray = chars.sorted { $0.name!.lowercased() < $1.name!.lowercased() }
+        }
+        
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -94,5 +108,12 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
         var width = UIScreen.main.bounds.width
         width = (width - 8 * 4) / 2
         return CGSize(width: width, height: width + 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+         if (indexPath.row == charactersArray.count - 1 ) {
+            self.lastIndex = charactersArray.count
+            self.presenter.fetchCharacters(pullRefresh: false, lastIndex: self.lastIndex)
+         }
     }
 }
