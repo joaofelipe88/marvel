@@ -24,7 +24,7 @@ class CharacterEntitySpec: QuickSpec {
             }
             
             it("Testing Character ID", closure: {
-                expect(model.characterId).to(equal(1))
+                expect(model.id).to(equal(1))
             })
             
             it("Testing Name", closure: {

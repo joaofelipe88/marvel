@@ -22,10 +22,7 @@ class CharactersListViewController: UIViewController {
         super.viewDidLoad()
         
         registerCells()
-//        self.presenter.viewDidLoad()
-        self.charactersArray.append(Character.generateMock())
-        self.charactersArray.append(Character.generateMock())
-        self.charactersArray.append(Character.generateMock())
+        self.presenter.viewDidLoad()
     }
     
     // MARK: - Setup
@@ -44,16 +41,22 @@ extension CharactersListViewController: CharactersListViewControllerProtocol {
     }
     
     func showLoading() {
-        activityIndicator.startAnimating()
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
     }
     
     func hideLoading() {
-        activityIndicator.stopAnimating()
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
     }
     
     func loadCharacters(_ chars: [Character]) {
-        self.charactersArray = chars
-        self.collectionView.reloadData()
+        self.charactersArray = chars.sorted { $0.name!.lowercased() < $1.name!.lowercased() }
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -76,7 +79,9 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 150.0, height: 200.0)
+
+        var width = UIScreen.main.bounds.width
+        width = (width - 8 * 4) / 2
+        return CGSize(width: width, height: width + 50)
     }
 }

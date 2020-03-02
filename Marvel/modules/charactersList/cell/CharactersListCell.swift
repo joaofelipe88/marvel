@@ -31,18 +31,33 @@ class CharactersListCell: UICollectionViewCell {
         self.character = character
         charNameLabel.text = character.name
         
-        if let url = character.profileImageUrl {
+        if character.name == "Aaron Stack" {
+            print(character.thumbnail?.path ?? "teste")
+        }
+        
+        if let url = getURLImage(character) {
             charImageView.kf.indicatorType = .activity
             charImageView.kf.setImage(with: url)
         } else {
             charImageView.backgroundColor = .darkGray
         }
+        
 //        character.isFavorite()
 //            .observeOn(MainScheduler.instance)
 //            .subscribe(onNext: {[weak self] isFavorite in
 //                guard let self = self else { return }
 //                self.configureFavorite(isFavorite: isFavorite)
 //            }).disposed(by: disposeBag)
+    }
+    
+    func getURLImage(_ character: Character) -> URL? {
+        if let image = character.thumbnail?.path?.replacingOccurrences(of: "http", with: "https"),
+            let imgExtension = character.thumbnail?.imgExtension,
+            let url = URL(string: "\(image)/portrait_xlarge.\(imgExtension)") {
+            return url
+        }
+        
+        return nil
     }
     
 }

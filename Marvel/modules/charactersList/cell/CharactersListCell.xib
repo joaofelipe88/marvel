@@ -16,21 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kw3-Pv-rzq">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="150" id="Ond-Vn-j7h"/>
-                            <constraint firstAttribute="width" constant="150" id="P25-lf-ybl"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MyJ-YE-w0i">
-                        <rect key="frame" x="10" y="166" width="95" height="18"/>
+                        <rect key="frame" x="10" y="176" width="95" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07S-1P-iBq">
-                        <rect key="frame" x="110" y="160" width="30" height="30"/>
+                        <rect key="frame" x="110" y="170" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="fGb-xf-DQ5"/>
                             <constraint firstAttribute="width" constant="30" id="hB5-ql-oiI"/>
@@ -39,18 +32,36 @@
                         <state key="normal" image="star" catalog="system"/>
                         <state key="selected" image="star.fill" catalog="system"/>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kw3-Pv-rzq">
+                        <rect key="frame" x="25" y="10" width="100" height="150"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="07S-1P-iBq" secondAttribute="trailing" constant="10" id="16m-ML-G06"/>
                     <constraint firstItem="07S-1P-iBq" firstAttribute="top" secondItem="Kw3-Pv-rzq" secondAttribute="bottom" constant="10" id="5ZM-md-OZa"/>
                     <constraint firstItem="07S-1P-iBq" firstAttribute="centerY" secondItem="MyJ-YE-w0i" secondAttribute="centerY" id="7aw-f9-lqd"/>
-                    <constraint firstItem="Kw3-Pv-rzq" firstAttribute="leading" secondItem="2fB-wJ-mml" secondAttribute="leading" id="7vX-1t-34g"/>
+                    <constraint firstItem="Kw3-Pv-rzq" firstAttribute="leading" secondItem="2fB-wJ-mml" secondAttribute="leading" constant="25" id="OAl-9M-yPO"/>
                     <constraint firstItem="07S-1P-iBq" firstAttribute="leading" secondItem="MyJ-YE-w0i" secondAttribute="trailing" constant="5" id="Qde-eZ-UqC"/>
-                    <constraint firstAttribute="trailing" secondItem="Kw3-Pv-rzq" secondAttribute="trailing" id="Xtg-R2-d13"/>
+                    <constraint firstAttribute="bottom" secondItem="07S-1P-iBq" secondAttribute="bottom" id="VDn-Aw-0tk"/>
+                    <constraint firstAttribute="trailing" secondItem="Kw3-Pv-rzq" secondAttribute="trailing" constant="25" id="Z2C-Ye-7W3"/>
                     <constraint firstItem="MyJ-YE-w0i" firstAttribute="leading" secondItem="2fB-wJ-mml" secondAttribute="leading" constant="10" id="mQE-eU-PMw"/>
-                    <constraint firstItem="Kw3-Pv-rzq" firstAttribute="top" secondItem="2fB-wJ-mml" secondAttribute="top" id="zLQ-Qd-2xh"/>
+                    <constraint firstItem="Kw3-Pv-rzq" firstAttribute="top" secondItem="2fB-wJ-mml" secondAttribute="top" constant="10" id="zLQ-Qd-2xh"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                        <integer key="value" value="8"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </collectionViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="charFavoriteButton" destination="07S-1P-iBq" id="ZiP-Fe-xso"/>
                 <outlet property="charImageView" destination="Kw3-Pv-rzq" id="Mmm-gg-hsg"/>
