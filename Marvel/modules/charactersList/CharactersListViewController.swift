@@ -13,7 +13,9 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var charactersEmptyView: UIView!
+    @IBOutlet weak var charactersErrorView: UIView!
+    @IBOutlet weak var characterErrorLabel: UILabel!
+    
     
     private let refreshControl = UIRefreshControl()
     
@@ -63,7 +65,11 @@ class CharactersListViewController: UIViewController {
 extension CharactersListViewController: CharactersListViewControllerProtocol {
     
     func showError(with message: String) {
-        showErrorAlert(message)
+        DispatchQueue.main.async {
+            self.characterErrorLabel.text = message
+            self.charactersErrorView.isHidden = false
+            self.showErrorAlert(message)
+        }
     }
     
     func showLoading() {
@@ -76,13 +82,14 @@ extension CharactersListViewController: CharactersListViewControllerProtocol {
         DispatchQueue.main.async {
             self.refreshControl.endRefreshing()
             self.activityIndicator.stopAnimating()
-            self.charactersEmptyView.isHidden = true
+            self.charactersErrorView.isHidden = true
+            self.characterErrorLabel.text = "There's no Heroes"
         }
     }
     
     func emptyView() {
         DispatchQueue.main.async {
-            self.charactersEmptyView.isHidden = false
+            self.charactersErrorView.isHidden = false
         }
     }
     
