@@ -18,6 +18,11 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
         }
         interactor?.retrieveCharList(lastIndex: lastIndex)
     }
+    
+    func searchCharList(textName: String) {
+        view?.showLoading()
+        interactor?.searchCharList(textName: textName)
+    }
 }
 
 extension CharactersListPresenter: CharactersListInteractorOutputProtocol {

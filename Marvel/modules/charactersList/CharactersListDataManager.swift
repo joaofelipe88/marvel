@@ -22,9 +22,20 @@ class CharactersListDataManager: ApiServices, CharactersListRemoteDataManagerInp
         }).disposed(by: disposeBag)
     }
     
-    func getCharacters(lastIndex: Int) -> Observable<[Character]> {
+    func searchCharList(textName: String) {
         
-        let endpoint = "\(ApiDefinitions.Endpoint.characters)?\(defaultParams())&limit=\(LIMIT)&offset=\(lastIndex)"
+        getCharacters(lastIndex: 0, textName: textName)
+        .subscribe(onNext: { (chars) in
+            self.remoteRequestHandler?.onCharsRetrieved(chars)
+        }).disposed(by: disposeBag)
+    }
+    
+    func getCharacters(lastIndex: Int, textName: String? = nil) -> Observable<[Character]> {
+        
+        var endpoint = "\(ApiDefinitions.Endpoint.characters)?\(defaultParams())&limit=\(LIMIT)&offset=\(lastIndex)"
+        if let string = textName {
+            endpoint = "\(ApiDefinitions.Endpoint.characters)?\(defaultParams())&limit=\(LIMIT)&nameStartsWith=\(string)"
+        }
         
         return ApiRequest<CharacterResponse>()
             .requestObject(urlString: "\(ApiDefinitions.baseUrl)\(endpoint)")
