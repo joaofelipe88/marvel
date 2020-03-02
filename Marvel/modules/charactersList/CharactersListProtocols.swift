@@ -14,16 +14,15 @@ protocol CharactersListViewControllerProtocol: class {
     
     // PRESENTER -> VIEW
     func showError(with message: String)
-    
     func showLoading()
-    
     func hideLoading()
+    func loadCharacters(_ chars: [Character])
 }
 
 protocol CharactersListWireFrameProtocol: class {
     static func createCharactersListModule() -> UIViewController
     // PRESENTER -> WIREFRAME
-    func presentCharactersListScreen(from view: CharactersListViewControllerProtocol, forChars chars: [Character])
+    func presentCharactersListScreen(from view: CharactersListViewControllerProtocol, forChars chars: Character)
 }
 
 protocol CharactersListPresenterProtocol: class {
@@ -33,7 +32,6 @@ protocol CharactersListPresenterProtocol: class {
     
     // VIEW -> PRESENTER
     func viewDidLoad()
-    func getCharList()
 }
 
 protocol CharactersListInteractorOutputProtocol: class {

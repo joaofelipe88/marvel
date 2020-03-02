@@ -13,9 +13,6 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     var wireFrame: CharactersListWireFrameProtocol?
     
     func viewDidLoad() {
-    }
-    
-    func getCharList() {
         view?.showLoading()
         interactor?.retrieveCharList()
     }
@@ -25,7 +22,8 @@ extension CharactersListPresenter: CharactersListInteractorOutputProtocol {
     
     func didRetrieveChars(_ chars: [Character]) {
         view?.hideLoading()
-        wireFrame?.presentCharactersListScreen(from: view!, forChars: chars)
+        view?.loadCharacters(chars)
+//        wireFrame?.presentCharactersListScreen(from: view!, forChars: chars)
     }
     
     func didFailedRequest(with error: String) {

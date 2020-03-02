@@ -26,14 +26,47 @@
         <!--Characters-->
         <scene sceneID="FH3-Vb-H9t">
             <objects>
-                <viewController id="Qob-ne-3oB" sceneMemberID="viewController">
+                <viewController id="Qob-ne-3oB" customClass="CharactersListViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BK3-uo-kIY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DQ3-Qz-pY0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.20000000000000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="GT2-2G-QZM">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qob-ne-3oB" id="7Wv-ar-qMg"/>
+                                    <outlet property="delegate" destination="Qob-ne-3oB" id="mjb-Hb-7kd"/>
+                                </connections>
+                            </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ChC-oR-JSH">
+                                <rect key="frame" x="197" y="396.5" width="20" height="20"/>
+                                <color key="color" red="0.92455786470000001" green="0.10997990520000001" blue="0.1375359595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ChC-oR-JSH" firstAttribute="centerY" secondItem="BK3-uo-kIY" secondAttribute="centerY" id="6ot-mm-829"/>
+                            <constraint firstItem="DQ3-Qz-pY0" firstAttribute="bottom" secondItem="jWA-eu-MnR" secondAttribute="bottom" id="OiF-7j-01W"/>
+                            <constraint firstItem="DQ3-Qz-pY0" firstAttribute="top" secondItem="jWA-eu-MnR" secondAttribute="top" id="YqB-v5-r8r"/>
+                            <constraint firstItem="DQ3-Qz-pY0" firstAttribute="leading" secondItem="jWA-eu-MnR" secondAttribute="leading" id="owj-Q5-ze4"/>
+                            <constraint firstItem="DQ3-Qz-pY0" firstAttribute="trailing" secondItem="jWA-eu-MnR" secondAttribute="trailing" id="pub-Dv-lnL"/>
+                            <constraint firstItem="ChC-oR-JSH" firstAttribute="centerX" secondItem="BK3-uo-kIY" secondAttribute="centerX" id="s7i-SN-zdX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jWA-eu-MnR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Characters" id="xcq-Ld-0pR"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ChC-oR-JSH" id="xbW-TY-DEL"/>
+                        <outlet property="collectionView" destination="DQ3-Qz-pY0" id="1Wa-gj-hWS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08F-Hs-4uQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,7 +75,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="iKf-re-GiL">
             <objects>
-                <tabBarController id="b73-Hl-cbQ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MarvelTabbarController" id="b73-Hl-cbQ" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="XwN-tS-cvR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
