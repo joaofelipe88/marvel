@@ -31,7 +31,7 @@ protocol CharactersListPresenterProtocol: class {
     var wireFrame: CharactersListWireFrameProtocol? { get set }
     
     // VIEW -> PRESENTER
-    func fetchCharacters(pullRefresh: Bool)
+    func fetchCharacters(pullRefresh: Bool, lastIndex: Int)
 }
 
 protocol CharactersListInteractorOutputProtocol: class {
@@ -45,14 +45,14 @@ protocol CharactersListInteractorInputProtocol: class {
     var remoteDatamanager: CharactersListRemoteDataManagerInputProtocol? { get set }
     
     // PRESENTER -> INTERACTOR
-    func retrieveCharList()
+    func retrieveCharList(lastIndex: Int)
 }
 
 protocol CharactersListRemoteDataManagerInputProtocol: class {
     var remoteRequestHandler: CharactersListRemoteDataManagerOutputProtocol? { get set }
     
     // INTERACTOR -> REMOTEDATAMANAGER
-    func retrieveCharList()
+    func retrieveCharList(lastIndex: Int)
 }
 
 protocol CharactersListRemoteDataManagerOutputProtocol: class {

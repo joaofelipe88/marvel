@@ -14,9 +14,9 @@ class CharactersListDataManager: ApiServices, CharactersListRemoteDataManagerInp
     var remoteRequestHandler: CharactersListRemoteDataManagerOutputProtocol?
     let disposeBag = DisposeBag()
     
-    func retrieveCharList() {
+    func retrieveCharList(lastIndex: Int) {
         
-        getCharacters(lastIndex: 0)
+        getCharacters(lastIndex: lastIndex)
         .subscribe(onNext: { (chars) in
             self.remoteRequestHandler?.onCharsRetrieved(chars)
         }).disposed(by: disposeBag)
