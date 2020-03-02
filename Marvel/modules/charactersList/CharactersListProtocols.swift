@@ -16,6 +16,7 @@ protocol CharactersListViewControllerProtocol: class {
     func showError(with message: String)
     func showLoading()
     func hideLoading()
+    func emptyView()
     func loadCharacters(_ chars: [Character])
 }
 

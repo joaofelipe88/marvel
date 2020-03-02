@@ -13,6 +13,7 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var charactersEmptyView: UIView!
     
     private let refreshControl = UIRefreshControl()
     
@@ -34,15 +35,27 @@ class CharactersListViewController: UIViewController {
     private func registerCells() {
         collectionView.register(UINib(nibName: characterCell, bundle: nil), forCellWithReuseIdentifier: characterCell)
         collectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
     }
     
     // MARK: - RefreshAction
     
-    @objc private func refreshWeatherData(_ sender: Any) {
+    @objc private func refreshData(_ sender: Any) {
         self.lastIndex = 0
         self.presenter.fetchCharacters(pullRefresh: true, lastIndex: self.lastIndex)
     }
+    
+    @IBAction func refreshTryAgain(_ sender: Any) {
+        
+        self.lastIndex = 0
+        
+        if let string = self.searchBar.text, !string.isEmpty {
+            self.presenter.searchCharList(textName: string)
+        } else {
+            self.presenter.fetchCharacters(pullRefresh: false, lastIndex: 0)
+        }
+    }
+    
 }
 
 // MARK: - CharactersListViewControllerProtocol
@@ -63,6 +76,13 @@ extension CharactersListViewController: CharactersListViewControllerProtocol {
         DispatchQueue.main.async {
             self.refreshControl.endRefreshing()
             self.activityIndicator.stopAnimating()
+            self.charactersEmptyView.isHidden = true
+        }
+    }
+    
+    func emptyView() {
+        DispatchQueue.main.async {
+            self.charactersEmptyView.isHidden = false
         }
     }
     

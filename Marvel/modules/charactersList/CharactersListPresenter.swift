@@ -28,8 +28,14 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
 extension CharactersListPresenter: CharactersListInteractorOutputProtocol {
     
     func didRetrieveChars(_ chars: [Character]) {
+        
         view?.hideLoading()
-        view?.loadCharacters(chars)
+        
+        if chars.count > 0 {
+            view?.loadCharacters(chars)
+        } else {
+            view?.emptyView()
+        }
 //        wireFrame?.presentCharactersListScreen(from: view!, forChars: chars)
     }
     
