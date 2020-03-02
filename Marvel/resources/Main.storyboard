@@ -50,8 +50,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LdO-2E-Pz7">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <searchBar contentMode="redraw" placeholder="Search your hero by name" translatesAutoresizingMaskIntoConstraints="NO" id="wW0-73-IUv">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="Qob-ne-3oB" id="iFz-lv-jeI"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LdO-2E-Pz7">
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="HwC-0N-hhI">
                                     <size key="itemSize" width="150" height="200"/>
@@ -73,11 +84,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ChC-oR-JSH" firstAttribute="centerY" secondItem="BK3-uo-kIY" secondAttribute="centerY" id="6ot-mm-829"/>
-                            <constraint firstItem="LdO-2E-Pz7" firstAttribute="top" secondItem="jWA-eu-MnR" secondAttribute="top" id="Bwq-Jt-ZjG"/>
+                            <constraint firstItem="LdO-2E-Pz7" firstAttribute="top" secondItem="wW0-73-IUv" secondAttribute="bottom" symbolic="YES" id="8EH-nT-ysP"/>
                             <constraint firstItem="LdO-2E-Pz7" firstAttribute="leading" secondItem="jWA-eu-MnR" secondAttribute="leading" id="R41-82-zI5"/>
+                            <constraint firstItem="wW0-73-IUv" firstAttribute="leading" secondItem="jWA-eu-MnR" secondAttribute="leading" id="WpV-6K-N1m"/>
+                            <constraint firstItem="wW0-73-IUv" firstAttribute="top" secondItem="jWA-eu-MnR" secondAttribute="top" id="ZdA-zW-w80"/>
                             <constraint firstItem="jWA-eu-MnR" firstAttribute="bottom" secondItem="LdO-2E-Pz7" secondAttribute="bottom" id="iMz-1X-hxx"/>
                             <constraint firstItem="jWA-eu-MnR" firstAttribute="trailing" secondItem="LdO-2E-Pz7" secondAttribute="trailing" id="pHz-1k-WwH"/>
                             <constraint firstItem="ChC-oR-JSH" firstAttribute="centerX" secondItem="BK3-uo-kIY" secondAttribute="centerX" id="s7i-SN-zdX"/>
+                            <constraint firstItem="wW0-73-IUv" firstAttribute="trailing" secondItem="jWA-eu-MnR" secondAttribute="trailing" id="yqs-sR-dDc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jWA-eu-MnR"/>
                     </view>
@@ -85,6 +99,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="ChC-oR-JSH" id="xbW-TY-DEL"/>
                         <outlet property="collectionView" destination="LdO-2E-Pz7" id="jmk-sO-y64"/>
+                        <outlet property="searchBar" destination="wW0-73-IUv" id="kIp-kF-Hdz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08F-Hs-4uQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

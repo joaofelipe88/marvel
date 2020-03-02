@@ -12,6 +12,7 @@ class CharactersListViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     private let refreshControl = UIRefreshControl()
     
@@ -111,9 +112,30 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-         if (indexPath.row == charactersArray.count - 1 ) {
+        
+        if let searchText = self.searchBar.text, searchText.isEmpty, indexPath.row == charactersArray.count - 1 {
             self.lastIndex = charactersArray.count
             self.presenter.fetchCharacters(pullRefresh: false, lastIndex: self.lastIndex)
-         }
+        }
     }
+}
+
+// MARK: - UISearchBarDelegate Methods
+
+extension CharactersListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if let string = searchBar.text, !string.isEmpty {
+            self.lastIndex = 0
+            self.presenter.searchCharList(textName: string)
+        } else {
+            self.presenter.fetchCharacters(pullRefresh: false, lastIndex: 0)
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
 }

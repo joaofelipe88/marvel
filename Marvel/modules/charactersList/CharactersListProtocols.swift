@@ -32,6 +32,7 @@ protocol CharactersListPresenterProtocol: class {
     
     // VIEW -> PRESENTER
     func fetchCharacters(pullRefresh: Bool, lastIndex: Int)
+    func searchCharList(textName: String)
 }
 
 protocol CharactersListInteractorOutputProtocol: class {
@@ -46,6 +47,7 @@ protocol CharactersListInteractorInputProtocol: class {
     
     // PRESENTER -> INTERACTOR
     func retrieveCharList(lastIndex: Int)
+    func searchCharList(textName: String)
 }
 
 protocol CharactersListRemoteDataManagerInputProtocol: class {
@@ -53,6 +55,7 @@ protocol CharactersListRemoteDataManagerInputProtocol: class {
     
     // INTERACTOR -> REMOTEDATAMANAGER
     func retrieveCharList(lastIndex: Int)
+    func searchCharList(textName: String)
 }
 
 protocol CharactersListRemoteDataManagerOutputProtocol: class {

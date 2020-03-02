@@ -16,6 +16,10 @@ class CharactersListInteractor: CharactersListInteractorInputProtocol {
     func retrieveCharList(lastIndex: Int) {
         remoteDatamanager?.retrieveCharList(lastIndex: lastIndex)
     }
+    
+    func searchCharList(textName: String) {
+        remoteDatamanager?.searchCharList(textName: textName)
+    }
 }
 
 extension CharactersListInteractor: CharactersListRemoteDataManagerOutputProtocol {
