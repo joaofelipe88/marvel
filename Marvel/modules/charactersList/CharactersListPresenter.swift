@@ -12,8 +12,10 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     var interactor: CharactersListInteractorInputProtocol?
     var wireFrame: CharactersListWireFrameProtocol?
     
-    func viewDidLoad() {
-        view?.showLoading()
+    func fetchCharacters(pullRefresh: Bool) {
+        if !pullRefresh {
+            view?.showLoading()
+        }
         interactor?.retrieveCharList()
     }
 }

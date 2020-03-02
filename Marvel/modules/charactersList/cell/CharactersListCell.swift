@@ -31,10 +31,6 @@ class CharactersListCell: UICollectionViewCell {
         self.character = character
         charNameLabel.text = character.name
         
-        if character.name == "Aaron Stack" {
-            print(character.thumbnail?.path ?? "teste")
-        }
-        
         if let url = getURLImage(character) {
             charImageView.kf.indicatorType = .activity
             charImageView.kf.setImage(with: url)

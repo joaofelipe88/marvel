@@ -13,6 +13,8 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let refreshControl = UIRefreshControl()
+    
     private let characterCell = "CharactersListCell"
     private var charactersArray = [Character]()
     
@@ -22,13 +24,21 @@ class CharactersListViewController: UIViewController {
         super.viewDidLoad()
         
         registerCells()
-        self.presenter.viewDidLoad()
+        self.presenter.fetchCharacters(pullRefresh: false)
     }
     
     // MARK: - Setup
 
     private func registerCells() {
         collectionView.register(UINib(nibName: characterCell, bundle: nil), forCellWithReuseIdentifier: characterCell)
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+    }
+    
+    // MARK: - RefreshAction
+    
+    @objc private func refreshWeatherData(_ sender: Any) {
+        self.presenter.fetchCharacters(pullRefresh: true)
     }
 }
 
@@ -48,6 +58,7 @@ extension CharactersListViewController: CharactersListViewControllerProtocol {
     
     func hideLoading() {
         DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
             self.activityIndicator.stopAnimating()
         }
     }

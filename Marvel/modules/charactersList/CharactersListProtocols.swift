@@ -31,7 +31,7 @@ protocol CharactersListPresenterProtocol: class {
     var wireFrame: CharactersListWireFrameProtocol? { get set }
     
     // VIEW -> PRESENTER
-    func viewDidLoad()
+    func fetchCharacters(pullRefresh: Bool)
 }
 
 protocol CharactersListInteractorOutputProtocol: class {
