@@ -23,7 +23,7 @@ class CharactersRequestSpec: QuickSpec {
                 let disposeBag = DisposeBag()
                 
                 waitUntil(timeout: 10.0, action: { done in
-                    CharactersListDataManager().fetch(lastIndex: 0)
+                    CharactersListDataManager().getCharacters(lastIndex: 0)
                         .subscribe(onNext: { models in
                             expect(models.count).to(equal(20))
                             done()

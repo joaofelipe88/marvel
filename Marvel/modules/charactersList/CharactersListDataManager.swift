@@ -16,23 +16,13 @@ class CharactersListDataManager: ApiServices, CharactersListRemoteDataManagerInp
     
     func retrieveCharList() {
         
-        fetch(lastIndex: 0)
+        getCharacters(lastIndex: 0)
         .subscribe(onNext: { (chars) in
             self.remoteRequestHandler?.onCharsRetrieved(chars)
         }).disposed(by: disposeBag)
-        
-//        searchCharacters(searchString: nil, start: 0, count: 10) { response in
-//            
-//            guard response.isSuccess, let chars = response.value else  {
-//                self.remoteRequestHandler?.didFailedRequest(with: "teste")
-//                return
-//            }
-//            
-//            self.remoteRequestHandler?.onCharsRetrieved(chars)
-//        }
     }
     
-    func fetch(lastIndex: Int) -> Observable<[Character]> {
+    func getCharacters(lastIndex: Int) -> Observable<[Character]> {
         
         let endpoint = "\(ApiDefinitions.Endpoint.characters)?\(defaultParams())&limit=\(LIMIT)&offset=\(lastIndex)"
         

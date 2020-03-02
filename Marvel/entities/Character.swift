@@ -10,13 +10,20 @@ import Foundation
 
 struct Character: Codable {
     
-    let characterId: Int?
-    let name: String?
-    let description: String?
+    var id: Int?
+    var name: String?
+    var description: String?
     var resourceURI: String?
-    let thumbURL: CharacterThumbnail?
+    var thumbnail: CharacterThumbnail?
     var comics: CharacterDetail?
     var series: CharacterDetail?
+    
+    init(id: Int, name: String, description: String, resourceURI: String) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.resourceURI = resourceURI
+    }
 }
 
 struct CharacterThumbnail: Codable {
@@ -26,5 +33,21 @@ struct CharacterThumbnail: Codable {
     private enum CodingKeys: String, CodingKey {
         case path
         case imgExtension = "extension"
+    }
+    
+    init(path: String, imgExtension: String) {
+        self.path = path
+        self.imgExtension = imgExtension
+    }
+}
+
+extension Character {
+
+    static func generateMock() -> Character {
+        let char = Character(id: 1,
+                             name: "Adam Warlock",
+                             description: "Adam Warlock is an artificially created human who was born in a cocoon at a scientific complex called The Beehive.",
+                             resourceURI: "http://gateway.marvel.com/v1/public/characters/1010354")
+        return char
     }
 }
