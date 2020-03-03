@@ -20,13 +20,19 @@ class CharacterDetailWireframe: CharacterDetailWireframeProtocol {
         viewController.title = char.name
         
         if let view = viewController as? CharacterDetailViewController {
-            let presenter: CharacterDetailPresenterProtocol = CharacterDetailPresenter()
+            let presenter: CharacterDetailPresenterProtocol & CharacterDetailInteractorOutputProtocol = CharacterDetailPresenter()
+            let interactor: CharacterDetailInteractorInputProtocol & CharacterDetailRemoteDataManagerOutputProtocol = CharacterDetailInteractor()
+            let remoteDataManager: CharacterDetailRemoteDataManagerInputProtocol = CharacterDetailDataManager()
             let wireFrame: CharacterDetailWireframeProtocol = CharacterDetailWireframe()
 
             view.presenter = presenter
             presenter.view = view
             presenter.char = char
             presenter.wireFrame = wireFrame
+            presenter.interactor = interactor
+            interactor.presenter = presenter
+            interactor.remoteDatamanager = remoteDataManager
+            remoteDataManager.remoteRequestHandler = interactor
 
             return viewController
         }
