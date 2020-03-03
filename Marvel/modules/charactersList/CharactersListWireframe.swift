@@ -36,7 +36,12 @@ class CharactersListWireframe: CharactersListWireFrameProtocol {
 
     }
     
-    func presentCharactersListScreen(from view: CharactersListViewControllerProtocol, forChars chars: Character) {
+    func presentCharactersListScreen(from view: CharactersListViewControllerProtocol, forChar char: Character) {
         
+        let characterDetailViewController = CharacterDetailWireframe.createCharacterDetailModule(forChar: char)
+        
+        if let sourceView = view as? UIViewController {
+            sourceView.navigationController?.pushViewController(characterDetailViewController, animated: true)
+        }
     }
 }

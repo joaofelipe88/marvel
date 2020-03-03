@@ -23,7 +23,7 @@ protocol CharactersListViewControllerProtocol: class {
 protocol CharactersListWireFrameProtocol: class {
     static func createCharactersListModule() -> UIViewController
     // PRESENTER -> WIREFRAME
-    func presentCharactersListScreen(from view: CharactersListViewControllerProtocol, forChars chars: Character)
+    func presentCharactersListScreen(from view: CharactersListViewControllerProtocol, forChar char: Character)
 }
 
 protocol CharactersListPresenterProtocol: class {
@@ -34,6 +34,7 @@ protocol CharactersListPresenterProtocol: class {
     // VIEW -> PRESENTER
     func fetchCharacters(pullRefresh: Bool, lastIndex: Int)
     func searchCharList(textName: String)
+    func showCharacterDetail(forChar char: Character)
 }
 
 protocol CharactersListInteractorOutputProtocol: class {

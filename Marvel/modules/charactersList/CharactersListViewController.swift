@@ -145,6 +145,10 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
             self.presenter.fetchCharacters(pullRefresh: false, lastIndex: self.lastIndex)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.showCharacterDetail(forChar: self.charactersArray[indexPath.row])
+    }
 }
 
 // MARK: - UISearchBarDelegate Methods
