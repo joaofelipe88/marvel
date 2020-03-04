@@ -126,7 +126,7 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
             return UICollectionViewCell()
         }
         
-        let character =  charactersArray[indexPath.row]
+        let character = charactersArray[indexPath.row]
         cell.setup(character: character)
         return cell
     }
