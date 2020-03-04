@@ -47,6 +47,7 @@ class CharactersListCell: UICollectionViewCell {
     }
     
     func getURLImage(_ character: Character) -> URL? {
+        
         if let image = character.thumbnail?.path?.replacingOccurrences(of: "http", with: "https"),
             let imgExtension = character.thumbnail?.imgExtension,
             let url = URL(string: "\(image)/portrait_xlarge.\(imgExtension)") {

@@ -21,6 +21,8 @@
 		379D0ED9240E8BF30093A057 /* CharacterDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D0ED8240E8BF30093A057 /* CharacterDetailInteractor.swift */; };
 		379D0EDB240EA4BC0093A057 /* CharacterDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D0EDA240EA4BC0093A057 /* CharacterDetailDataManager.swift */; };
 		379D0EDF240EC0B50093A057 /* CharacterDetailMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D0EDE240EC0B50093A057 /* CharacterDetailMapper.swift */; };
+		379D0EE2240F1E4D0093A057 /* CharacterDetailSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D0EE0240F1E4D0093A057 /* CharacterDetailSectionCell.swift */; };
+		379D0EE3240F1E4D0093A057 /* CharacterDetailSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379D0EE1240F1E4D0093A057 /* CharacterDetailSectionCell.xib */; };
 		37B5EC0E2409718000C6F5D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B5EBFF2409718000C6F5D7 /* LaunchScreen.storyboard */; };
 		37B5EC0F2409718000C6F5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B5EC002409718000C6F5D7 /* Assets.xcassets */; };
 		37B5EC102409718000C6F5D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B5EC012409718000C6F5D7 /* Main.storyboard */; };
@@ -81,6 +83,8 @@
 		379D0ED8240E8BF30093A057 /* CharacterDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailInteractor.swift; sourceTree = "<group>"; };
 		379D0EDA240EA4BC0093A057 /* CharacterDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailDataManager.swift; sourceTree = "<group>"; };
 		379D0EDE240EC0B50093A057 /* CharacterDetailMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailMapper.swift; sourceTree = "<group>"; };
+		379D0EE0240F1E4D0093A057 /* CharacterDetailSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailSectionCell.swift; sourceTree = "<group>"; };
+		379D0EE1240F1E4D0093A057 /* CharacterDetailSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailSectionCell.xib; sourceTree = "<group>"; };
 		37B5EBFF2409718000C6F5D7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B5EC002409718000C6F5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37B5EC012409718000C6F5D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 			children = (
 				379D0EC6240E84D20093A057 /* CharacterDetailCell.swift */,
 				379D0EC7240E84D20093A057 /* CharacterDetailCell.xib */,
+				379D0EE0240F1E4D0093A057 /* CharacterDetailSectionCell.swift */,
+				379D0EE1240F1E4D0093A057 /* CharacterDetailSectionCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 			files = (
 				37B5EC102409718000C6F5D7 /* Main.storyboard in Resources */,
 				37B5EC0F2409718000C6F5D7 /* Assets.xcassets in Resources */,
+				379D0EE3240F1E4D0093A057 /* CharacterDetailSectionCell.xib in Resources */,
 				37B5EC0E2409718000C6F5D7 /* LaunchScreen.storyboard in Resources */,
 				379D0EC9240E84D20093A057 /* CharacterDetailCell.xib in Resources */,
 				37DA3931240C8E0800D697F3 /* CharactersListCell.xib in Resources */,
@@ -590,6 +597,7 @@
 				379D0EC2240D2A540093A057 /* CharacterDetailViewController.swift in Sources */,
 				379D0ECB240E89BC0093A057 /* CharacterDetailResponse.swift in Sources */,
 				379D0EDF240EC0B50093A057 /* CharacterDetailMapper.swift in Sources */,
+				379D0EE2240F1E4D0093A057 /* CharacterDetailSectionCell.swift in Sources */,
 				37DA3912240BEC2800D697F3 /* ApiRequest.swift in Sources */,
 				37B5EC132409718000C6F5D7 /* SceneDelegate.swift in Sources */,
 				379D0EC0240D22E10093A057 /* CharacterDetailProtocols.swift in Sources */,

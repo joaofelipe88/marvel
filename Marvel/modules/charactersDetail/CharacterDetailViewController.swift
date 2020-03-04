@@ -17,13 +17,14 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var charDescriptionLabel: UILabel!
     
     
-    private let characterDetailCell = "CharactersDetailCell"
+    private let characterDetailSectionCell = "CharacterDetailSectionCell"
     var presenter: CharacterDetailPresenterProtocol?
     var comics: [Detail]?
     var series: [Detail]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerCells()
         presenter?.viewDidLoad()
     }
     
@@ -35,6 +36,12 @@ class CharacterDetailViewController: UIViewController {
         }
         
         return nil
+    }
+    
+    // MARK: - Setup
+
+    private func registerCells() {
+        collectionView.register(UINib(nibName: characterDetailSectionCell, bundle: nil), forCellWithReuseIdentifier: characterDetailSectionCell)
     }
 
 }
@@ -61,40 +68,55 @@ extension CharacterDetailViewController: CharacterDetailViewProtocol {
     }
     
     func showComics(forDetail comics: [Detail]) {
-        self.comics = comics
+        DispatchQueue.main.async {
+            self.comics = comics
+            self.collectionView.reloadData()
+        }
     }
     
     func showSeries(forDetail series: [Detail]) {
-        self.series = series
+        DispatchQueue.main.async {
+            self.series = series
+            self.collectionView.reloadData()
+        }
     }
 }
 
 // MARK: - CollectionViewDelegate & CollectionViewDataSource Methods
 
-extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
         return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return (section == 0 ? self.comics?.count : self.series?.count) ?? 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: characterDetailCell, for: indexPath) as? CharacterDetailCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: characterDetailSectionCell, for: indexPath) as? CharacterDetailSectionCell else {
             return UICollectionViewCell()
         }
         
         if indexPath.section == 0 {
+            if let comics = comics {
+                cell.setup(details: comics)
+            }
             return cell
             
         } else {
+            if let series = series {
+                cell.setup(details: series)
+            }
             return cell
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = UIScreen.main.bounds.width
+        return CGSize(width: width, height: 178)
+    }
 }
