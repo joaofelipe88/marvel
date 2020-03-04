@@ -38,12 +38,6 @@ class CharactersListCell: UICollectionViewCell {
             charImageView.backgroundColor = .darkGray
         }
         
-//        character.isFavorite()
-//            .observeOn(MainScheduler.instance)
-//            .subscribe(onNext: {[weak self] isFavorite in
-//                guard let self = self else { return }
-//                self.configureFavorite(isFavorite: isFavorite)
-//            }).disposed(by: disposeBag)
     }
     
     func getURLImage(_ character: Character) -> URL? {
@@ -57,4 +51,16 @@ class CharactersListCell: UICollectionViewCell {
         return nil
     }
     
+    // MARK: - Favorite Action
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+        
+        self.charFavoriteButton.isSelected = !self.charFavoriteButton.isSelected
+        //        character.isFavorite()
+        //            .observeOn(MainScheduler.instance)
+        //            .subscribe(onNext: {[weak self] isFavorite in
+        //                guard let self = self else { return }
+        //                self.configureFavorite(isFavorite: isFavorite)
+        //            }).disposed(by: disposeBag)
+    }
 }

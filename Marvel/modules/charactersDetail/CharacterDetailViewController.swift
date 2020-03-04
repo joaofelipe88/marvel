@@ -18,9 +18,11 @@ class CharacterDetailViewController: UIViewController {
     
     
     private let characterDetailSectionCell = "CharacterDetailSectionCell"
+    private let characterDetailHeader = "CharacterDetailHeader"
     var presenter: CharacterDetailPresenterProtocol?
     var comics: [Detail]?
     var series: [Detail]?
+    let headerTitle = ["Comics", "Series"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,7 @@ class CharacterDetailViewController: UIViewController {
 
     private func registerCells() {
         collectionView.register(UINib(nibName: characterDetailSectionCell, bundle: nil), forCellWithReuseIdentifier: characterDetailSectionCell)
+        collectionView.register(UINib(nibName: characterDetailHeader, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: characterDetailHeader)
     }
 
 }
@@ -118,5 +121,25 @@ extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionV
 
         let width = UIScreen.main.bounds.width
         return CGSize(width: width, height: 178)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if (kind == UICollectionView.elementKindSectionHeader) {
+            
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: characterDetailHeader, for: indexPath) as? CharacterDetailHeader else {
+                return UICollectionReusableView()
+            }
+            headerView.setupHeader(headerTitle[indexPath.section])
+            return headerView
+        }
+        
+        fatalError()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        let width = UIScreen.main.bounds.width
+        return CGSize(width: width, height: 50)
     }
 }

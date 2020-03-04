@@ -24,7 +24,12 @@ class CharacterDetailCell: UICollectionViewCell {
         func setup(detail: Detail) {
             
             detailImageView.backgroundColor = .clear
-            detailLabel.text = detail.title
+            
+            if let title = detail.title, !title.isEmpty {
+                detailLabel.text = title
+            } else {
+                detailLabel.text = "No found"
+            }
             
             if let url = getURLImage(detail) {
                 detailImageView.kf.indicatorType = .activity

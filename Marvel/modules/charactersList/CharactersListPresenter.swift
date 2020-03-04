@@ -40,7 +40,6 @@ extension CharactersListPresenter: CharactersListInteractorOutputProtocol {
         } else {
             view?.emptyView()
         }
-//        wireFrame?.presentCharactersListScreen(from: view!, forChars: chars)
     }
     
     func didFailedRequest(with error: String) {

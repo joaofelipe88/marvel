@@ -10,6 +10,7 @@ import UIKit
 
 class CharacterDetailSectionCell: UICollectionViewCell {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var details: [Detail]?
@@ -18,6 +19,8 @@ class CharacterDetailSectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        activityIndicator.startAnimating()
     }
     
     // MARK: - Setup
@@ -30,6 +33,7 @@ class CharacterDetailSectionCell: UICollectionViewCell {
         registerCells()
         self.details = details
         collectionView.reloadData()
+        activityIndicator.stopAnimating()
     }
 
 }

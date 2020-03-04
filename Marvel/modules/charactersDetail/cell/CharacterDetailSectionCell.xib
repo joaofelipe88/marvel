@@ -30,16 +30,23 @@
                             <outlet property="delegate" destination="iYw-PL-nac" id="HB7-rp-jIz"/>
                         </connections>
                     </collectionView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6lX-Nh-4GV">
+                        <rect key="frame" x="210" y="79" width="20" height="20"/>
+                        <color key="color" red="0.92549019610000005" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Mbj-BR-tN7" secondAttribute="trailing" id="2GG-U8-4EB"/>
                     <constraint firstItem="Mbj-BR-tN7" firstAttribute="top" secondItem="Lof-c8-2vw" secondAttribute="top" id="PzV-WV-Bjp"/>
                     <constraint firstItem="Mbj-BR-tN7" firstAttribute="leading" secondItem="Lof-c8-2vw" secondAttribute="leading" id="UeJ-yX-Cu9"/>
                     <constraint firstAttribute="bottom" secondItem="Mbj-BR-tN7" secondAttribute="bottom" id="col-b2-CmW"/>
+                    <constraint firstItem="6lX-Nh-4GV" firstAttribute="centerY" secondItem="Lof-c8-2vw" secondAttribute="centerY" id="dAE-iq-DGc"/>
+                    <constraint firstItem="6lX-Nh-4GV" firstAttribute="centerX" secondItem="Lof-c8-2vw" secondAttribute="centerX" id="w3G-fe-teI"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="418" height="223"/>
             <connections>
+                <outlet property="activityIndicator" destination="6lX-Nh-4GV" id="Pqx-F9-mh6"/>
                 <outlet property="collectionView" destination="Mbj-BR-tN7" id="WDd-5g-c7t"/>
             </connections>
             <point key="canvasLocation" x="212.31884057971016" y="58.928571428571423"/>

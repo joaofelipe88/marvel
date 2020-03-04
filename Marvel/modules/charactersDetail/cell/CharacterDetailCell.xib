@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="178"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2v8-ss-6sU">
-                        <rect key="frame" x="10" y="150" width="79" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2v8-ss-6sU">
+                        <rect key="frame" x="10" y="150" width="130" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,6 +35,7 @@
                     <constraint firstAttribute="bottom" secondItem="2v8-ss-6sU" secondAttribute="bottom" constant="10" id="KDF-oG-52I"/>
                     <constraint firstItem="2v8-ss-6sU" firstAttribute="leading" secondItem="6sE-eG-r7T" secondAttribute="leading" constant="10" id="aHH-0W-IXS"/>
                     <constraint firstItem="i1a-aF-Nlh" firstAttribute="top" secondItem="6sE-eG-r7T" secondAttribute="top" constant="10" id="awH-u9-YqP"/>
+                    <constraint firstAttribute="trailing" secondItem="2v8-ss-6sU" secondAttribute="trailing" constant="10" id="c42-9x-8ma"/>
                     <constraint firstItem="2v8-ss-6sU" firstAttribute="top" secondItem="i1a-aF-Nlh" secondAttribute="bottom" constant="10" id="hMG-gn-8fV"/>
                     <constraint firstAttribute="trailing" secondItem="i1a-aF-Nlh" secondAttribute="trailing" constant="10" id="qwa-GB-n9u"/>
                 </constraints>
