@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
     
@@ -15,11 +16,52 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
     var interactor: CharacterDetailInteractorInputProtocol?
     var char: Character?
     
+    private var repository: FavoriteRepository!
+    private var disposeBag = DisposeBag()
+    
     func viewDidLoad() {
         view?.showCharacter(forChar: char!)
         interactor?.retrieveCharDetail(forChar: char!)
+        
+        repository = FavoriteRepository()
+        isFavorite()
+        .observeOn(MainScheduler.instance)
+        .subscribe(onNext: {[weak self] isFavorite in
+            guard let self = self else { return }
+            self.view?.setFavoriteButton(isFavorite)
+        }).disposed(by: disposeBag)
     }
     
+    func setCharFavorite() {
+        favorite()
+        .observeOn(MainScheduler.instance)
+        .subscribe(onNext: {[weak self] _ in
+            guard let self = self else { return }
+            self.view?.setFavoriteButton(true)
+        }).disposed(by: disposeBag)
+    }
+    
+    func setCharUnFavorite() {
+        unFavorite()
+        .observeOn(MainScheduler.instance)
+        .subscribe(onNext: {[weak self] _ in
+            guard let self = self else { return }
+            self.view?.setFavoriteButton(false)
+        }).disposed(by: disposeBag)
+    }
+    
+    func isFavorite() -> Observable<Bool> {
+        return repository.find(character: self.char ?? Character())
+        .map { !$0.isEmpty }
+    }
+    
+    func favorite() -> Observable<Bool> {
+        return repository.insert(character: self.char ?? Character())
+    }
+    
+    func unFavorite() -> Observable<Bool> {
+        return repository.delete(character: self.char ?? Character())
+    }
 }
 
 extension CharacterDetailPresenter: CharacterDetailInteractorOutputProtocol {

@@ -23,6 +23,7 @@ class CharacterDetailViewController: UIViewController {
     var comics: [Detail]?
     var series: [Detail]?
     let headerTitle = ["Comics", "Series"]
+    var charFavorite: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,18 @@ class CharacterDetailViewController: UIViewController {
         collectionView.register(UINib(nibName: characterDetailSectionCell, bundle: nil), forCellWithReuseIdentifier: characterDetailSectionCell)
         collectionView.register(UINib(nibName: characterDetailHeader, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: characterDetailHeader)
     }
-
+    
+    
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+        
+        if self.charFavorite {
+            presenter?.setCharUnFavorite()
+        } else {
+            presenter?.setCharFavorite()
+        }
+    }
+    
 }
 
 extension CharacterDetailViewController: CharacterDetailViewProtocol {
@@ -81,6 +93,13 @@ extension CharacterDetailViewController: CharacterDetailViewProtocol {
         DispatchQueue.main.async {
             self.series = series
             self.collectionView.reloadData()
+        }
+    }
+    
+    func setFavoriteButton(_ isFavorite: Bool) {
+        DispatchQueue.main.async {
+            self.charFavorite = isFavorite ? true : false
+            self.favoriteButton.image = isFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
         }
     }
 }

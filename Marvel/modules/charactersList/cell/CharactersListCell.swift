@@ -17,6 +17,8 @@ class CharactersListCell: UICollectionViewCell {
     @IBOutlet weak var charFavoriteButton: UIButton!
     
     private var character: Character!
+    private var repository: FavoriteRepository!
+    private var disposeBag = DisposeBag()
     
     // MARK: - Lifecycle
     
@@ -38,6 +40,14 @@ class CharactersListCell: UICollectionViewCell {
             charImageView.backgroundColor = .darkGray
         }
         
+        repository = FavoriteRepository()
+        isFavorite()
+        .observeOn(MainScheduler.instance)
+        .subscribe(onNext: {[weak self] isFavorite in
+            guard let self = self else { return }
+            self.charFavoriteButton.isSelected = isFavorite
+        }).disposed(by: disposeBag)
+        
     }
     
     func getURLImage(_ character: Character) -> URL? {
@@ -55,12 +65,33 @@ class CharactersListCell: UICollectionViewCell {
     
     @IBAction func favoriteAction(_ sender: Any) {
         
-        self.charFavoriteButton.isSelected = !self.charFavoriteButton.isSelected
-        //        character.isFavorite()
-        //            .observeOn(MainScheduler.instance)
-        //            .subscribe(onNext: {[weak self] isFavorite in
-        //                guard let self = self else { return }
-        //                self.configureFavorite(isFavorite: isFavorite)
-        //            }).disposed(by: disposeBag)
+        if self.charFavoriteButton.isSelected {
+            unFavorite()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {[weak self] _ in
+                guard let self = self else { return }
+                self.charFavoriteButton.isSelected = !self.charFavoriteButton.isSelected
+            }).disposed(by: disposeBag)
+        } else {
+            favorite()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {[weak self] _ in
+                guard let self = self else { return }
+                self.charFavoriteButton.isSelected = !self.charFavoriteButton.isSelected
+            }).disposed(by: disposeBag)
+        }
+    }
+    
+    func isFavorite() -> Observable<Bool> {
+        return repository.find(character: self.character)
+                    .map { !$0.isEmpty }
+    }
+    
+    func favorite() -> Observable<Bool> {
+         return repository.insert(character: self.character)
+    }
+    
+    func unFavorite() -> Observable<Bool> {
+        return repository.delete(character: self.character)
     }
 }

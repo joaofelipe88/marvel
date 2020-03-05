@@ -201,7 +201,11 @@
                         <viewLayoutGuide key="safeArea" id="0xg-X3-Nhl"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ale-Wl-T3l">
-                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="W1a-4n-DoP"/>
+                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="W1a-4n-DoP">
+                            <connections>
+                                <action selector="favoriteAction:" destination="eNt-dk-nMQ" id="IXr-C5-YmX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="charDescriptionLabel" destination="f4K-9C-OWl" id="cJu-0Q-v4Q"/>
