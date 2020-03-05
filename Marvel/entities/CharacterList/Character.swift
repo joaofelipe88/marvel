@@ -18,6 +18,8 @@ struct Character: Codable {
     var comics: CharacterDetail?
     var series: CharacterDetail?
     
+    init() {}
+    
     init(id: Int, name: String, description: String, resourceURI: String) {
         self.id = id
         self.name = name
@@ -34,6 +36,8 @@ struct CharacterThumbnail: Codable {
         case path
         case imgExtension = "extension"
     }
+    
+    init() {}
     
     init(path: String, imgExtension: String) {
         self.path = path

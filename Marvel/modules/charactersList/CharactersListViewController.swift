@@ -32,6 +32,11 @@ class CharactersListViewController: UIViewController {
         self.presenter.fetchCharacters(pullRefresh: false, lastIndex: 0)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.collectionView.reloadData()
+    }
+    
     // MARK: - Setup
 
     private func registerCells() {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterDetailHeader" id="U6b-Vx-4bR" customClass="CharacterDetailHeader" customModule="Marvel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kfa-Cg-Pzw">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJm-No-lxf">
+                            <rect key="frame" x="20" y="14.5" width="57.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="GJm-No-lxf" firstAttribute="centerY" secondItem="Kfa-Cg-Pzw" secondAttribute="centerY" id="8QR-KK-dmr"/>
+                        <constraint firstItem="GJm-No-lxf" firstAttribute="leading" secondItem="Kfa-Cg-Pzw" secondAttribute="leading" constant="20" id="fQR-Wp-B7C"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Kfa-Cg-Pzw" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="6Ak-SH-XF8"/>
+                <constraint firstItem="Kfa-Cg-Pzw" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="AKK-Gz-Fg6"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="Kfa-Cg-Pzw" secondAttribute="bottom" id="C8l-Ua-9eb"/>
+                <constraint firstAttribute="trailing" secondItem="Kfa-Cg-Pzw" secondAttribute="trailing" id="Ucs-kv-6Kl"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <connections>
+                <outlet property="headerLabel" destination="GJm-No-lxf" id="47D-oS-mHm"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+        </collectionReusableView>
+    </objects>
+</document>

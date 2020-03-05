@@ -15,6 +15,7 @@ protocol CharacterDetailViewProtocol: class {
     func showCharacter(forChar char: Character)
     func showComics(forDetail comics: [Detail])
     func showSeries(forDetail series: [Detail])
+    func setFavoriteButton(_ isFavorite: Bool)
 }
 
 protocol CharacterDetailWireframeProtocol: class {
@@ -29,6 +30,8 @@ protocol CharacterDetailPresenterProtocol: class {
     
     // VIEW -> PRESENTER
     func viewDidLoad()
+    func setCharFavorite()
+    func setCharUnFavorite()
 }
 
 protocol CharacterDetailInteractorOutputProtocol: class {
