@@ -10,33 +10,87 @@
         <!--Favorites-->
         <scene sceneID="cFw-Na-msf">
             <objects>
-                <viewController id="2iB-Cv-Rfx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharactersFavoriteView" id="2iB-Cv-Rfx" customClass="CharactersFavoriteViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L7a-lv-sgw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NTP-vO-z2v">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="uwy-dT-Rvc">
-                                    <size key="itemSize" width="180" height="230"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="uwy-dT-Rvc">
+                                    <size key="itemSize" width="150" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2iB-Cv-Rfx" id="rga-CP-hwq"/>
+                                    <outlet property="delegate" destination="2iB-Cv-Rfx" id="2JW-5I-D89"/>
+                                </connections>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2p-lX-bPJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's no Favorite Heroes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsg-3Q-ne9">
+                                        <rect key="frame" x="104.5" y="398.5" width="205" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nu-7S-ucP">
+                                        <rect key="frame" x="126" y="439.5" width="162" height="30"/>
+                                        <color key="backgroundColor" red="0.49803921569999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Click here and try again"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="refreshTryAgain:" destination="2iB-Cv-Rfx" eventType="touchUpInside" id="8E5-nw-LXg"/>
+                                            <action selector="refreshTryAgain:" destination="Qob-ne-3oB" eventType="touchUpInside" id="dyU-1p-JU3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="jsg-3Q-ne9" firstAttribute="centerX" secondItem="P2p-lX-bPJ" secondAttribute="centerX" id="EE6-RK-ctH"/>
+                                    <constraint firstItem="2Nu-7S-ucP" firstAttribute="centerX" secondItem="P2p-lX-bPJ" secondAttribute="centerX" id="uf2-K9-MWe"/>
+                                    <constraint firstItem="2Nu-7S-ucP" firstAttribute="top" secondItem="jsg-3Q-ne9" secondAttribute="bottom" constant="20" id="vpP-Hg-dmG"/>
+                                    <constraint firstItem="jsg-3Q-ne9" firstAttribute="centerY" secondItem="P2p-lX-bPJ" secondAttribute="centerY" id="yIc-gh-eqc"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Uv-Dk-sNZ">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <color key="color" red="0.92549019610000005" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="EGV-xw-oCb" firstAttribute="trailing" secondItem="P2p-lX-bPJ" secondAttribute="trailing" id="6Ck-4S-vyh"/>
                             <constraint firstItem="EGV-xw-oCb" firstAttribute="bottom" secondItem="NTP-vO-z2v" secondAttribute="bottom" id="8Ag-u3-lHn"/>
+                            <constraint firstItem="P2p-lX-bPJ" firstAttribute="top" secondItem="EGV-xw-oCb" secondAttribute="top" id="8fT-yS-vJs"/>
+                            <constraint firstItem="EGV-xw-oCb" firstAttribute="bottom" secondItem="P2p-lX-bPJ" secondAttribute="bottom" id="E6u-LB-Wub"/>
                             <constraint firstItem="NTP-vO-z2v" firstAttribute="top" secondItem="EGV-xw-oCb" secondAttribute="top" id="WKg-sB-3hL"/>
+                            <constraint firstItem="5Uv-Dk-sNZ" firstAttribute="centerY" secondItem="L7a-lv-sgw" secondAttribute="centerY" id="XMc-ld-BT5"/>
                             <constraint firstItem="NTP-vO-z2v" firstAttribute="leading" secondItem="EGV-xw-oCb" secondAttribute="leading" id="a3g-Eh-E6x"/>
                             <constraint firstItem="EGV-xw-oCb" firstAttribute="trailing" secondItem="NTP-vO-z2v" secondAttribute="trailing" id="jfI-LZ-6Qg"/>
+                            <constraint firstItem="P2p-lX-bPJ" firstAttribute="leading" secondItem="EGV-xw-oCb" secondAttribute="leading" id="kP6-Fe-nqj"/>
+                            <constraint firstItem="5Uv-Dk-sNZ" firstAttribute="centerX" secondItem="L7a-lv-sgw" secondAttribute="centerX" id="nB4-kc-INB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EGV-xw-oCb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="rpv-OD-LNz"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="5Uv-Dk-sNZ" id="xWO-Ni-Wg5"/>
+                        <outlet property="collectionView" destination="NTP-vO-z2v" id="sVV-16-yrQ"/>
+                        <outlet property="favoriteErrorLabel" destination="jsg-3Q-ne9" id="fuM-pv-xWo"/>
+                        <outlet property="favoriteErrorView" destination="P2p-lX-bPJ" id="1wi-sK-CBj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQT-ru-hT3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -265,8 +319,8 @@
         <!--Favorites-->
         <scene sceneID="7Sq-Ag-wf9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cMl-yL-ZG2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="HUf-2q-46a"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cMl-yL-ZG2" customClass="FavoriteNavigationController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="Favorites" image="star" catalog="system" id="HUf-2q-46a"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f9j-Hw-gd1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -277,13 +331,10 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2iB-Cv-Rfx" kind="relationship" relationship="rootViewController" id="L9R-Ag-dje"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="saX-C4-zrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.39130434782609" y="33.482142857142854"/>
+            <point key="canvasLocation" x="117" y="33"/>
         </scene>
     </scenes>
     <resources>

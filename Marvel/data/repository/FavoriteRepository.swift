@@ -58,6 +58,7 @@ class FavoriteRepository {
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
                 var character = Character()
+                var thumbnail = CharacterThumbnail()
                 if let name = data.value(forKey: "name") as? String {
                     character.name = name
                 }
@@ -65,11 +66,12 @@ class FavoriteRepository {
                     character.id = charId
                 }
                 if let path = data.value(forKey: "path") as? String {
-                    character.thumbnail?.path = path
+                    thumbnail.path = path
                 }
                 if let imgExtension = data.value(forKey: "imgExtension") as? String {
-                    character.thumbnail?.imgExtension = imgExtension
+                    thumbnail.imgExtension = imgExtension
                 }
+                character.thumbnail = thumbnail
                 models.append(character)
             }
         } catch {

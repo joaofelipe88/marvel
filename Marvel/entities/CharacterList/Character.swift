@@ -37,6 +37,8 @@ struct CharacterThumbnail: Codable {
         case imgExtension = "extension"
     }
     
+    init() {}
+    
     init(path: String, imgExtension: String) {
         self.path = path
         self.imgExtension = imgExtension

@@ -50,6 +50,10 @@ class CharactersListCell: UICollectionViewCell {
         
     }
     
+    func hiddenFavoriteButton() {
+        self.charFavoriteButton.isHidden = true
+    }
+    
     func getURLImage(_ character: Character) -> URL? {
         
         if let image = character.thumbnail?.path?.replacingOccurrences(of: "http", with: "https"),
